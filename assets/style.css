@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+}
+
+:root {
+    --letra: rgb(0, 214, 214);
+    --letra2: yellow;
+    --letra3: rgb(255, 94, 0);
+    --fondo: rgba(36, 36, 36, 0.616);
+    --fondo2: rgba(0, 0, 0, 0.26);
+    --fondo3: aliceblue;
+    
+}
+
+body {
+    background-color: rgb(50, 50, 51);
+}
+
+.container {
+    background-color: var(--fondo2);
+    width: 80%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border: 2px solid var(--letra);
+    border-radius: 20px;
+    padding: 45px;
+}
+
+.container h1 {
+    font-size: 40px;
+    color: var(--letra);
+    font-weight: 600;
+    border-bottom: 2px solid var(--letra2);
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.quiz {
+    padding: 20px 0px;
+}
+
+.quiz h2 {
+    font-size: 15px;
+    color: var(--letra3);
+    font-weight: 600px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.button {
+    background-color: var(--letra);
+    color: var(--letra3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px;
+    margin: 10px 0px;
+    width: 100%;
+    border: 2px solid var(--letra2);
+    border-radius: 13px;
+    cursor: pointer;
+    
+}
+
+.button:hover {
+    background-color: var(--letra2);
+    color: var(--letra);
+    transform: scale(1.1);
+    filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
+    transition: ease-in-out 250ms;
+}
+
+#next {
+    background-color: var(--letra);
+    color: var(--letra3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    width: 200px;
+    border: 2px solid var(--letra2);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 23px auto 0px;
+    cursor: pointer;
+    border-radius: 13px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    filter: blur(2px);
+    display: none;
+}
+
+#next:hover {
+    filter: blur(0px);
+    text-shadow: -3px -3px var(--letra2);
+    transform: scale(1.1);
+    filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
+    transition: ease-in-out 250ms;
+}
