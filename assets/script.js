@@ -1,13 +1,20 @@
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+// Variables
 var correct;
 
 const questionEl = document.querySelector("#question");
 const answersEl = document.querySelector("#answers");
 const nextEl = document.querySelector("#next");
+const container = document.querySelector(".container")
 
 var score = 0;
 var questionIndex = 0;
 
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+// All the questions and answers stored in arrays.
 const questions = [
     {
         question: "Which year was Cyberpunk 2077 released?",
@@ -98,7 +105,189 @@ const questions = [
             {answer: "Health Kits", correct: false},
             {answer: "Grenade Launcher", correct: false}
         ]
-    },
-    
+    }
+];
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
 
-]
+///////////////////////////////////////////////////////////////////////////////////////////
+                                    //FUNCTIONS//
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Start Quiz
+function beginQuiz() {
+    score = 0;
+    questionIndex = 0;
+
+    nextEl.innerHTML = "(N)(e)(x)(t)";
+    displayQuestion();
+}
+
+// resets and display the new questions and answers
+function displayQuestion() {
+
+    //Resets the previus question/answer.
+    resetQuiz();
+
+    var questionNum = questionIndex + 1;
+    var currentQuest = questions[questionIndex];
+    questionEl.innerHTML = "(" + questionNum + "). " + currentQuest.question;
+
+    currentQuest.answers.forEach(answer => {
+        const btn = document.createElement("button");
+        btn.innerHTML = answer.answer;
+        btn.classList.add("butt-on");
+        answersEl.appendChild(btn);
+
+        if(answer.correct){
+            btn.dataset.correct = answer.correct;
+        }
+        btn.addEventListener("click", userChoice)
+    });
+};
+
+// restart the quiz by removing the previous elements
+function resetQuiz() {
+    nextEl.getElementsByClassName.display = "none";
+    while(answersEl.firstChild){
+        answersEl.removeChild(answersEl.firstChild);
+    };
+};
+
+// determines and stores what the user chose.
+function userChoice(event) {
+    const targetedButton = event.target;
+    const isCorrect = targetedButton.dataset.correct === "true";
+    if(isCorrect) {
+        score++;
+        targetedButton.classList.add("correct");
+    }
+    else {
+        targetedButton.classList.add("incorrect");
+    }
+
+    //it disables the buttons and only shows the user answer and the correct answer in case the user
+    //responded with the wrong choice
+    Array.from(answersEl.children).forEach(btn => {
+        if (btn.dataset.correct === "true"){
+            btn.classList.add("correct");
+        }
+        btn.disabled = true;
+    });
+    
+    nextEl.style.display = "block";
+};
+
+// displays the score at the end and enables the player to continue or start again once all the questions
+//  are answered.
+function displayScore(){
+    resetQuiz();
+    questionEl.innerHTML = "Final Score: " + score;
+    nextEl.innerHTML = "Play Again";
+    nextEl.style.display = "block";
+};
+
+// next button inplementation
+function nextEnd(){
+    questionIndex++;
+    if(questionIndex < questions.length){
+        displayQuestion();
+    }
+    else{
+        displayScore();
+    };
+};
+
+// when clicking on the next button.
+nextEl.addEventListener("click", function(){
+    if(questionIndex < questions.length){
+        nextEnd();
+    }
+    else {
+        beginQuiz();
+        timeClass.style.display = "block";
+    }
+});
+
+
+// more variables but for the start of the quiz.
+var x = document.querySelector(".fondito");
+var z = document.querySelector(".intro");
+var a = document.querySelector("#start");
+
+
+// big main function to hide elements at the start of the quiz and once the users starts to play.
+function hide() {
+    beginQuiz();
+    
+    a.addEventListener("click", function() {
+        z.style.display = "none";
+        a.style.display = "none";
+        x.style.display = "none";
+        container.style.display = "block";
+
+        // element selectors stored in variables.
+        var timerEl = document.querySelector(".timer");
+        var timeClass = document.querySelector(".time");
+        var submit = document.querySelector(".POST");
+        var highClass = document.querySelector(".high");
+        var infoo = document.querySelector("#info");
+
+        highClass.addEventListener("click",function() {
+            infoo.style.display = "block";
+        });
+
+        timeClass.style.display = "block";
+        
+        // timer inplementation.
+        function timerDisp() {
+            var sec = 30;
+            timer = setInterval(function(){
+            timerEl.innerHTML = "Timer: " + sec --;
+
+            if (sec === -1) {
+                clearInterval(timer);
+                displayScore();
+                submit.style.display = "block";
+                timerEl.style.display = "none";
+            }
+            },1000)
+        }
+            timerDisp();
+    })
+}
+
+// variables for the name and scores
+var in1 = document.querySelector("#dis1");
+var in2 = document.querySelector("#dis2");
+
+const submitBtn = document.querySelector("#sub");
+
+// displays whats stored at the local storage to display what the HS is.
+function renderLastRegistered() {
+    var initials = localStorage.getItem("initials");
+    var highScore = localStorage.getItem("score");
+    console.log(initials);
+
+
+    in1.innerHTML = initials;
+    in2.innerHTML = highScore;
+}
+
+// sets all the results inside of the local storage.
+submitBtn.addEventListener("click", function(event) {
+    event.preventDefault();
+  
+    var initials = document.querySelector("#ini").value;
+      localStorage.setItem("initials", initials);
+      localStorage.setItem("score", score);
+      renderLastRegistered();
+    });
+
+
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+                                    //EXECUTION//
+///////////////////////////////////////////////////////////////////////////////////////////
+
+hide();

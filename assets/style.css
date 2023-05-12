@@ -1,3 +1,4 @@
+/* RESET */
 * {
     margin: 0;
     padding: 0;
@@ -5,6 +6,7 @@
     box-sizing: border-box;
 }
 
+/* VARIABLES */
 :root {
     --letra: rgb(0, 214, 214);
     --letra2: yellow;
@@ -12,11 +14,75 @@
     --fondo: rgba(36, 36, 36, 0.616);
     --fondo2: rgba(0, 0, 0, 0.26);
     --fondo3: aliceblue;
+    --ok: green;
+    --notOk: red;
     
 }
+*::selection {
+    background: rgba(0, 233, 233, 0.377);
+}
 
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Starter Info */
+.fondito {
+    background-color: var(--fondo2);
+    width: 80%;
+    max-width: 600px;
+    margin: 100px auto 0;
+    border: 2px solid var(--letra);
+    border-radius: 20px;
+    padding: 45px;
+}
+
+.fondito h2 {
+    font-size: 40px;
+    color: var(--letra);
+    font-weight: 600;
+    border-bottom: 2px solid var(--letra2);
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.fondito p {
+    font-size: 15px;
+    color: var(--letra);
+    font-weight: 400;
+    border-bottom: 2px solid var(--letra2);
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+#start {
+    background-color: var(--letra);
+    color: var(--letra3);
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px;
+    margin: 10px 0px;
+    width: 100%;
+    border: 2px solid var(--letra2);
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+#start:hover {
+    background-color: var(--letra2);
+    color: var(--letra);
+    transform: scale(1.1);
+    filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
+    transition: ease-in-out 250ms;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Questions and Answers */
 body {
-    background-color: rgb(50, 50, 51);
+    background-image: url(./img/building-4699096.jpg);
+    background-position: center;
+    background-size:250%;
 }
 
 .container {
@@ -27,6 +93,7 @@ body {
     border: 2px solid var(--letra);
     border-radius: 20px;
     padding: 45px;
+    display: none;
 }
 
 .container h1 {
@@ -51,9 +118,9 @@ body {
     text-align: center;
 }
 
-.button {
+.butt-on {
     background-color: var(--letra);
-    color: var(--letra3);
+    color: var(--letra2);
     font-weight: 700;
     letter-spacing: 1px;
     padding: 10px;
@@ -62,10 +129,9 @@ body {
     border: 2px solid var(--letra2);
     border-radius: 13px;
     cursor: pointer;
-    
 }
 
-.button:hover {
+.butt-on:hover {
     background-color: var(--letra2);
     color: var(--letra);
     transform: scale(1.1);
@@ -99,3 +165,123 @@ body {
     filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
     transition: ease-in-out 250ms;
 }
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* Timer, High Score and Submit Button Style */
+.time {
+    margin: auto;
+    font-size: 15px;
+    color: var(--letra);
+    font-weight: 400;
+    border: 2px solid var(--letra2);
+    border-radius: 20px;
+    padding-bottom: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 30%;
+    margin-top: 100px;
+    display: none;
+}
+
+.timer {
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+.high {
+    margin-top: 20px;
+    border-top: 2px solid var(--letra2);
+    padding-top: 10px;
+}
+
+.high:hover {
+    text-shadow: -3px -3px var(--letra2);
+    filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
+    transition: ease-in-out 250ms;
+    cursor: pointer;
+}
+
+.input-group {
+    margin: auto;
+    font-size: 15px;
+    color: var(--letra);
+    font-weight: 400;
+    border: 2px solid var(--letra2);
+    border-radius: 20px;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    letter-spacing: 2px;
+    text-align: center;
+    width: 30%;
+    margin-top: 100px;
+}
+
+.input-group input {
+    border-radius: 10px;
+    border-style: none;
+    background-color: var(--letra);
+    text-align: center;
+    width: 80px;
+}
+
+.POST {
+    display: none;
+}
+
+form button {
+    margin: auto;
+    background-color: var(--letra);
+    color: var(--letra2);
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 4px;
+    margin-top: 15px;
+    width: 30%;
+    text-align: center;
+    justify-content: center;
+    border: 2px solid var(--letra2);
+    border-radius: 13px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: var(--letra2);
+    color: var(--letra);
+    transform: scale(1.1);
+    filter: drop-shadow(1px 1px 10px rgba(0, 247, 255, 0.685));
+    transition: ease-in-out 250ms;
+}
+
+#info {
+    margin: auto;
+    margin-top: 40px;
+    display: flex;
+    width: 30%;
+    justify-content: space-around;
+    display: none;
+    
+}
+
+.i {
+    font-size: 30px;
+    color: var(--letra2);
+    font-weight: 800px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* If answer correct or incorrect */
+.correct {
+    background-color: var(--ok);
+}
+
+.incorrect {
+    background-color: var(--notOk);
+}
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
