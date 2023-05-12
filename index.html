@@ -17,21 +17,59 @@
 </head>
 
 <body>
+
+    <!-- Class that appears before everything else, INTRO -->
+    <div class="fondito">
+        <div class="intro">
+            <h2>Cyberpunk 2077 Quiz</h2>
+            <p>Hello everyone, if you would like to answer these FREE questions inside on the quiz please
+                click the 'Start Quiz' button. </p>
+            <h2>Rules:</h2>
+
+            <p> <span> 1.</span> You will have 30 seconds to answer all of the questions </p>
+            <p> <span>2.</span> Answer as many questions as you can during the time period to get the final score at the end and 
+                compare it to your rivals!
+            </p>
+            <p> <span>3.</span> Click on High Scores at the end of your quiz to see where did you placed. </p>
+        </div>
+        <button id="start">Start Quiz</button>
+    </div>
+
+      <!-- Placeholder for questions and answers -->
     <section class="container">
-        <h1>Cyberpunk 2077 QUIZ</h1>
+        <h1>Cyberpunk 2077</h1>
         <div class="quiz">
             <h2 id="question">Question located here</h2>
         </div>
         <div id="answers">
-            <button class="button">Answer1</button>
-            <button class="button">Answer2</button>
-            <button class="button">Answer3</button>
-            <button class="button">Answer4</button>
+            <button class="butt-on">Answer1</button>
+            <button class="butt-on">Answer2</button>
+            <button class="butt-on">Answer3</button>
+            <button class="butt-on">Answer4</button>
         </div>
 
         <button id="next">(N)(e)(x)(t)</button>
 
     </section>
+
+    <!-- Timer Inplementation -->
+    <div class="time">
+    <h1 class="timer">Timer: <span>30</span></h1>
+    <h1 class="high" >High Score</h1>
+    </div>
+    <div id="info">
+        <p class="i">Name: <span id="dis1">0</span></p>
+        <p class="i">Score: <span id="dis2">0</span></p>
+    </div>
+
+    <!-- High Score Inplementation -->
+    <form class="POST">
+    <div class="input-group">
+        <label for="highScore">Enter Initials: </label>
+        <input type="text" name="initials" id="ini" placeholder="---------" /><br>
+        <button id="sub">Submit</button>
+      </div>
+    </form>
 
 
 </body>
